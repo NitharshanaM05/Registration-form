@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #grad {
+  background-image: linear-gradient(to right, red , blue);
+}
+        .registration-form {
+            display: flex;
+            justify-content: space-between;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .registration-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .registration-form input[type="text"],
+        .registration-form input[type="email"],
+        .registration-form input[type="password"],
+        .registration-form input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .registration-form input[type="radio"] {
+            margin-right: 5px;
+        }
+        .registration-form button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        body {
+  background-image: linear-gradient(to right, rgb(0, 204, 255) , blue);
+}
+.registration-anotherdiv
+{
+    background-color: #fff;
+    width: 500px;
+    height: 500px;
+}
+button {  display: inline-block;
+      border-radius: 4px; 
+       background-color: #f4511e; 
+        border: none; 
+         color: #FFFFFF; 
+          text-align: center;  
+          font-size: 28px; 
+           padding: 2px;
+             width: 200px; 
+              transition: all 0.5s;
+                cursor: pointer;  margin: 5px;}
+    </style>
+     <script>
+        function validateForm() {
+            const fullName = document.getElementById('full-name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const username = document.getElementById('username').value;
+            const phoneNumber = document.getElementById('phone-number').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const gender = document.querySelector('input[name="gender"]:checked');
+
+            if (!fullName || !email || !password || !username || !phoneNumber || !confirmPassword || !gender) {
+                alert('Please fill in all fields.');
+                return false;
+            }
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert('Please enter a valid email address.');
+                return false;
+            }
+
+            const phonePattern = /^\d+$/;
+            if (!phonePattern.test(phoneNumber)) {
+                alert('Please enter a valid phone number.');
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                return false;
+            }
+
+            return true;
+        }
+        
+    </script>
+</head>
+<body>
+    <center>
+    <div class="registration-anotherdiv">
+        <h2>REGISTRATION FORM</h2><br>
+    
+    <div class="registration-form">
+        
+        <div class="left-section">
+            <label for="full-name"><b>Full Name:</b></label>
+            <input type="text" id="full-name" name="full-name" required>
+            <label for="email"><b>Email:</b></label>
+            <input type="email" id="email" name="email" required>
+            <label for="password"><b>Password:</b></label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="right-section">
+            <label for="username"><b>Username:</b></label>
+            <input type="text" id="username" name="username" required>
+            <label for="phone-number"><b>Phone Number:</b></label>
+            <input type="tel" id="phone-number" name="phone-number" required>
+            <label for="confirm-password"><b>Confirm Password:</b></label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+        </div>
+    </div><center>
+        <div class="gender-section">
+            <label><b>Gender:</b></label><br>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" id="other" name="gender" value="Prefer not to say">
+            <label for="other">Prefer not to say</label><br>
+        </div><br>
+        <button type="submit" onclick="validateForm()">Register</button>
+    </center>
+    </div>
+</center>
+    
+</body>
+</html>
+
+   
+
